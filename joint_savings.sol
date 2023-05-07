@@ -37,9 +37,13 @@ contract JointSavings {
     - A `uint` variable named `amount`
     - A `payable address` named `recipient`
     */
-    function withdraw(uint amount, address payable recipient) public {/*
+    function withdraw(uint amount, address payable recipient) public {
+        
+        /*
         Define a `require` statement that checks if the `recipient` is equal to either `accountOne` or `accountTwo`. The `requiere` statement returns the text `"You don't own this account!"` if it does not.
-        */               /*
+        */               
+        require (recipient == accountOne || recipient == accountTwo, "You don't own this account!"); 
+        /*
         Define a `require` statement that checks if the `balance` is sufficient to accomplish the withdraw operation. If there are insufficient funds, the text `Insufficient funds!` is returned.
         */
         require (address(this).balance >= amount, "Insufficient funds!");
